@@ -25,39 +25,43 @@
 ### 安装
 
 ```bash
-git clone https://github.com/LuckyYou/oc-flow.git
+git clone https://github.com/Liqiuyue9597/oc-flow.git
 cd oc-flow
+pip install -r requirements.txt
 ```
 
-### 基本使用
-
-#### 1. 查看状态
+### 基本使用（无需配置）
 
 ```bash
-python cli.py status
+# 查看状态
+python core/cli.py status
+
+# 任务规划
+python core/cli.py plan "竞品分析：产品 A vs 产品 B"
+
+# 持久执行
+python core/cli.py ralph "分析 100 个 GitHub 项目"
+
+# 团队协作
+python core/cli.py team 3 "修复所有测试"
 ```
 
-#### 2. 任务规划
+### 飞书集成（可选）
 
 ```bash
-python cli.py plan "竞品分析：obsidian-memos vs QuickAdd"
+export OC_FLOW_BITABLE_TOKEN=xxxxx
+export OC_FLOW_FEISHU_CHANNEL=oc_xxx
 ```
 
-#### 3. 持久执行
-
-```bash
-python cli.py ralph "分析 100 个 GitHub 项目"
-```
-
-#### 4. 团队协作
-
-```bash
-python cli.py team 3 "修复所有测试"
-```
+📖 **详细使用指南：** [docs/USER-GUIDE.md](docs/USER-GUIDE.md)
 
 ---
 
 ## 📁 项目结构
+cd oc-flow
+```
+
+
 
 ```
 oc-flow/
@@ -256,39 +260,41 @@ export OC_FLOW_LOG_LEVEL=INFO
 
 ---
 
-## 📝 使用场景
+## 💡 使用场景
 
-### 场景 1：任务分解
+### 场景 1：竞品分析
 
-```
-用户：$plan 竞品分析
-
-Act: ✅ 已创建任务清单「竞品分析」
-  📋 共 5 个子任务
-  查看进度：[任务链接]
+```bash
+$plan 竞品分析：产品 A vs 产品 B vs 产品 C
 ```
 
-### 场景 2：持久执行
+**自动分解为：**
+1. 收集三个产品的功能列表（10 分钟）
+2. 对比价格模型（5 分钟）
+3. 分析优缺点（15 分钟）
+4. 生成推荐表格（10 分钟）
 
-```
-用户：$ralph 分析 100 个 GitHub 项目
+### 场景 2：批量处理
 
-Act: ✅ 已启动持久任务
-  📊 进度：37/100
-  💾 状态已保存
-  🔄 服务器重启后自动恢复
+```bash
+$ralph 分析 100 个 GitHub Trending 项目
 ```
+
+**特性：**
+- ✅ 自动逐个分析
+- ✅ 每 10 秒推送进度
+- ✅ 中断后可恢复
 
 ### 场景 3：团队协作
 
+```bash
+$team 5:executor 修复所有测试用例
 ```
-用户：$team 3:executor 修复所有测试
 
-Act: ✅ 已启动 3 人团队
-  👷 Worker-1: 测试模块 A
-  👷 Worker-2: 测试模块 B
-  👷 Worker-3: 测试模块 C
-```
+**效果：**
+- ✅ 创建 5 人团队并行处理
+- ✅ 实时查看每人进度
+- ✅ 自动任务分配
 
 ---
 
@@ -374,6 +380,17 @@ python -m pytest tests/test_state_manager.py -v
 
 ---
 
+## 📚 文档导航
+
+| 文档 | 说明 |
+|------|------|
+| [docs/USER-GUIDE.md](docs/USER-GUIDE.md) | 📘 完整使用指南（推荐从这里开始） |
+| [docs/QUICKSTART.md](docs/QUICKSTART.md) | ⚡ 5 分钟快速开始 |
+| [docs/FEISHU-SETUP.md](docs/FEISHU-SETUP.md) | 📊 飞书集成配置 |
+| [docs/IMPLEMENTATION-COMPLETE.md](docs/IMPLEMENTATION-COMPLETE.md) | ✅ 实现详情 |
+
+---
+
 ## 📄 License
 
 MIT
@@ -381,4 +398,5 @@ MIT
 ---
 
 **最后更新：** 2026-04-01  
-**作者：** LuckyYou
+**作者：** Liqiuyue9597  
+**仓库：** https://github.com/Liqiuyue9597/oc-flow
