@@ -380,14 +380,35 @@ python -m pytest tests/test_state_manager.py -v
 
 ---
 
+## 🤖 OpenClaw 集成
+
+oc-flow 可与 OpenClaw 无缝集成，提供长周期任务执行能力：
+
+```bash
+# 在 OpenClaw 对话中
+/ocflow status
+/ocflow plan "竞品分析"
+/ocflow ralph "分析 100 个项目"
+```
+
+**集成方式：**
+- ✅ 作为 OpenClaw Skill 安装
+- ✅ 作为独立服务运行
+- ✅ 集成到 Gateway 原生命令
+
+📖 **详细指南：** [docs/OPENCLAW-INTEGRATION.md](docs/OPENCLAW-INTEGRATION.md)
+
+---
+
 ## 📚 文档导航
 
-| 文档 | 说明 |
-|------|------|
-| [docs/USER-GUIDE.md](docs/USER-GUIDE.md) | 📘 完整使用指南（推荐从这里开始） |
-| [docs/QUICKSTART.md](docs/QUICKSTART.md) | ⚡ 5 分钟快速开始 |
-| [docs/FEISHU-SETUP.md](docs/FEISHU-SETUP.md) | 📊 飞书集成配置 |
-| [docs/IMPLEMENTATION-COMPLETE.md](docs/IMPLEMENTATION-COMPLETE.md) | ✅ 实现详情 |
+| 文档 | 说明 | 适合人群 |
+|------|------|---------|
+| [docs/USER-GUIDE.md](docs/USER-GUIDE.md) | 📘 完整使用指南 | 👉 所有用户 |
+| [docs/QUICKSTART.md](docs/QUICKSTART.md) | ⚡ 5 分钟快速开始 | 新手 |
+| [docs/OPENCLAW-INTEGRATION.md](docs/OPENCLAW-INTEGRATION.md) | 🤖 OpenClaw 集成 | OpenClaw 用户 |
+| [docs/FEISHU-SETUP.md](docs/FEISHU-SETUP.md) | 📊 飞书集成配置 | 需要可视化 |
+| [docs/IMPLEMENTATION-COMPLETE.md](docs/IMPLEMENTATION-COMPLETE.md) | ✅ 实现详情 | 开发者 |
 
 ---
 
