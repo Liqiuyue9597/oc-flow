@@ -1,0 +1,12 @@
+# oc-flow 依赖
+
+# 核心依赖
+asyncio>=3.4.3
+pathlib>=1.0.1
+
+# 测试
+pytest>=7.0.0
+pytest-asyncio>=0.21.0
+
+# 可选：飞书集成
+# requests>=2.28.0
